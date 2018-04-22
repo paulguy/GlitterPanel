@@ -1,0 +1,14 @@
+OBJS   = GP.o clock.o
+TARGET = clock
+CFLAGS = -Wall -Wextra
+LDFLAGS = `libusb-config --libs` -lm
+
+$(TARGET): $(OBJS)
+	$(CC) $(LDFLAGS) -o $(TARGET) $(OBJS)
+
+all: $(TARGET)
+
+clean:
+	rm -f $(TARGET) $(OBJS)
+
+.PHONY: clean
